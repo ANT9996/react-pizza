@@ -1,4 +1,3 @@
-'use strict';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from "./App";
@@ -17,5 +16,6 @@ if (rootElem) {
             <Provider store={store}>
                 <App/>
             </Provider>
-        </BrowserRouter>)
+        </BrowserRouter>
+    )
 }

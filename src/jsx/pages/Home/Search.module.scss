@@ -1,0 +1,55 @@
+.root {
+  position: relative;
+  margin-top: 10px;
+  height: 35px;
+  padding-right: 10px;
+  width: 200px;
+  transition-duration: .3s;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  &:hover {
+    border: 1px solid orangered;
+    width: 100%!important;
+    transition-duration: .3s;
+    .input {
+      width: 100%!important;
+      transition-duration: .3s;
+    }
+    .clear {
+      opacity: 1!important;
+    }
+  }
+}
+
+
+.input {
+  padding: 8px 30px;
+  font-size: 13px;
+  font-family: 'Arial', sans-serif;
+  transition-duration: .3s;
+  border: 0;
+  height: 100%;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 23%;
+  left: 5px;
+}
+
+.clear {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  //transition-duration: .1s;
+  opacity: 0;
+}
+
+.group {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}

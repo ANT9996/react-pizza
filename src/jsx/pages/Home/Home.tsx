@@ -1,15 +1,15 @@
-import Sort from "./Sort";
-import PizzaBlock from "./PizzaBlock";
-import MyLoader from "./MyLoader";
 import React, {useEffect, useRef, useState} from "react";
 import {useNavigate} from 'react-router-dom'
-import Categories from "./Categories";
 import {useSelector} from "react-redux";
 import qs from "qs";
 import {selectFilter, setFilters} from "../../../redux/slices/filterSlice";
 import {fetchPizzas, selectPizza, Status} from "../../../redux/slices/pizzaSlice";
 import {list} from "../../../assets/data";
 import {useAppDispatch} from "../../../redux/store";
+const Sort = React.lazy(() => import('./Sort'))
+const PizzaBlock = React.lazy(() => import('./PizzaBlock'))
+const MyLoader = React.lazy(() => import('./MyLoader'))
+const Categories = React.lazy(() => import('./Categories'))
 
 const Home: React.FC = React.memo(
     () => {
@@ -31,7 +31,7 @@ const Home: React.FC = React.memo(
                     .map((item) => <PizzaBlock key={item.id} {...item}/>)
                 : [...Array(8)].map((elem, i) => <MyLoader key={i}/>)
         }
-        //запрос данных из базы данных
+        //запрос из базы данных
         const getPizzas = async () => {
             setContentLoading(true);
             await dispatch(fetchPizzas({categoryId: Number(categoryId), sortProperty: sort.sortProperty, order}));
